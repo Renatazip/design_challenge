@@ -1,0 +1,39 @@
+{% extends 'student_base.html' %}
+
+{% block title %}
+    Problems
+{% endblock %}
+
+{% block content %}
+    <div class="problems">
+        <div class="wrapper">
+            <div class="problems__left_part">
+                <div class="problems__layout">
+                    <button class="problems__button_all"><p>All</p></button>
+                    <h3>Problems</h3>
+                    <p class="problems__layout_text">During the computer programming process, identifying and using the
+                        appropriate data structure is
+                        an important task as it can improve the overall efficiency of the algorithm. In large-scale
+                        systems, choosing.</p>
+                </div>
+                {% for task in tasks %}
+                    {% include 'includes/problem_preview.html' with task=task %}
+                {% endfor %}
+            </div>
+            <div class="problems__right_part">
+                <div class="problems__companies">
+                    <p style="width: 100%">Companies</p>
+                    {% for company in companies %}
+                        <div class="problem__one_company">
+                            <p class="problem__one_company_name">{{ company.name }}</p>
+                            <div class="problem__company_cnt">
+                                <p class="problem__company_cnt_text">{{ company.task_count }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

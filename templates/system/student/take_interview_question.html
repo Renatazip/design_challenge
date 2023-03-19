@@ -1,0 +1,49 @@
+{% extends 'student_base.html' %}
+{% load static %}
+{% block title %}
+    {{ task.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="take_interview_question">
+        <div class="wrapper">
+            <div class="take_interview_question__right_part">
+                <div class="take_interview_question__description">
+                    <div class="take_interview_question__description_row">
+                        <div class="take_interview_question__full_task">
+                            <h4>Full task:</h4>
+                        </div>
+                        <h4 class="yel_text_color">/ good luck with a task</h4>
+
+                    </div>
+                    <div class="take_interview_question__one_description">
+                        <h2 class="take_interview_question__description_name">Design:</h2>
+                        <p class="take_interview_question__description_text">{{ interview_question.question }}</p>
+                    </div>
+                </div>
+                {% if have_solution %}
+                    <h3 class="take_task__info_label">Your answer:</h3>
+                    <div class="take_task__info">
+                        <p>{{ solution.text_answer }}</p>
+                    </div>
+                    <h3 class="take_task__info_label">Feedback from mentor:</h3>
+                    <div class="take_task__info">
+                        {% if solution.review == '' %}
+                            <p>Coming soon....</p>
+                        {% else %}
+                            <p>{{ solution.review }}</p>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <form enctype="multipart/form-data" method="POST" class="take_interview_question__form">
+                        {% csrf_token %}
+                        {{ form.text_answer }}
+                        <button type="submit" class="take_interview_question__button"><h4 class="take_interview_question__button_text">Finish task</h4></button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'student_base.html' %}
+
+{% block title %}
+    Problems
+{% endblock %}
+
+{% block content %}
+    <div class="problems">
+        <div class="wrapper">
+            <div class="problems__left_part">
+                {% for question in questions %}
+                    {% include 'includes/question_preview.html' with question=question %}
+                {% endfor %}
+            </div>
+        <div class="problems__right_part">
+
+        </div>
+        </div>
+    </div>
+{% endblock %}

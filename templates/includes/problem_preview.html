@@ -1,0 +1,13 @@
+<a href="{% url 'problem' pk=task.pk %}">
+    <div class="problem__preview_block">
+        <div class="problem__status">
+            <img src="" alt="">
+        </div>
+        <h5 class="problem__name">{{ task.name }}</h5>
+        <p class="level problem__level level_{{ task.level }}">{{ task.level }}</p>
+        <div class="problem__company_block">
+            <img class="problem__company_img" src="{{ task.company.logo.url }}" alt="">
+            <p class="problem__company_name">{{ task.company.name }}</p>
+        </div>
+    </div>
+</a>

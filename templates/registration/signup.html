@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+    <div class="signup_choose">
+        <div class="signup_choose__wrapper">
+            <div class="signup_choose__logo">
+                <h1>Welcome, fluffy! 👋</h1>
+                <p class="signup_choose__logo_sub_label">@ design edition</p>
+            </div>
+            <p class="signup_choose__text1">Choose mentor, if you’re planning to teach people, choose student, if you’re planning to study</p>
+            <div class="signup_choose__switcher">
+                <a href="{% url 'student_signup' %}" class="signup_choose__option signup_choose__student">
+                    <p class="signup_choose__option_name">Student</p>
+                </a>
+                <a href="{% url 'mentor_signup' %}" class="signup_choose__option signup_choose__mentor">
+                    <p class="signup_choose__option_name">Mentor</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

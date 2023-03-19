@@ -1,0 +1,13 @@
+<a href="{% url 'interview_question' pk=question.pk %}">
+    <div class="question__preview_block">
+        <div class="question__status">
+            <img src="" alt="">
+        </div>
+        <h5 class="question__name">{{ question.question }}</h5>
+        <p class="level level_{{ question.level }}">{{ question.level }}</p>
+        <div class="question__company_block">
+            <img class="question__company_img" src="" alt="">
+            <p class="question__company_name"></p>
+        </div>
+    </div>
+</a>

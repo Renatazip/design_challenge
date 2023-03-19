@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Log in{% endblock %}
+
+
+
+{% block content %}
+    <div class="login">
+        <div class="login__wrapper">
+            {% if form.non_fields_errors %}
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+
+            <form method="post" novalidate class="login__form">
+                <div class="login__logo">
+                    <h1>Fluffy</h1>
+                    <p class="login__logo_sub_label">@ design edition</p>
+                </div>
+                <div class="login__switcher">
+                    <div class="signup__login signup__switcher_item login__switcher_item_active">
+                        <a href="{% url 'login' %}"><p>Log in</p></a>
+                    </div>
+                    <div class="signup__signup signup__switcher_item">
+                        <a href="{% url 'signup' %}"><p>Sign up</p></a>
+                    </div>
+
+                </div>
+
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}">
+                {{ form.username }}
+                {{ form.password }}
+                <button type="submit" class="login__button"><p>Log in</p></button>
+                <div class="login__privacy_policy_block">
+                    <h6 class="login__privacy_policy">By signing up you agree to our Terms of Service</h6>
+                    <h6 class="login__privacy_policy">and Privacy Policy</h6>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelector('[name="username"]').placeholder = 'username';
+        document.querySelector('[name="password"]').placeholder = 'password';
+
+    </script>
+
+{% endblock %}

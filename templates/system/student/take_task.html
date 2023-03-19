@@ -1,0 +1,96 @@
+{% extends 'student_base.html' %}
+{% load static %}
+{% block title %}
+    {{ task.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="take_task">
+        <div class="wrapper">
+            <div class="take_task__left_part">
+                <div class="take_task__timer">
+                    <h3>Rules of the service</h3>
+                    <div class="take_task__bulled_list">
+                        <div class="take_task__point">
+                            <div>
+                                <img src="{% static 'img/bull.svg' %}" alt="" class="take_task__bull_img">
+                            </div>
+                            <p class="take_task__bulled_text">Choose duration</p>
+                        </div>
+                        <div class="take_task__point">
+                            <div>
+                                <img src="{% static 'img/bull.svg' %}" alt="" class="take_task__bull_img">
+                            </div>
+                            <p class="take_task__bulled_text">Finish and send to mentor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="take_task__time_regulator">
+                    <div class="take_task__lower take_task__regulator">
+                        <img src="{% static 'img/lower.svg' %}" alt="lower">
+                    </div>
+                    <div class="take_task__time_text">
+                        <p>15 : 00</p>
+                    </div>
+                    <div class="take_task__higher take_task__regulator">
+                        <img src="{% static 'img/higher.svg' %}" alt="higher">
+                    </div>
+                </div>
+                <div class="take_task__start_stop">
+                    <div class="take_task__start take_task__start_stop_reg">
+                        <img src="{% static 'img/start.svg' %}" alt="">
+                    </div>
+                    <div class="take_task__stop take_task__start_stop_reg">
+                        <img src="{% static 'img/stop.svg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="take_task__right_part">
+                <div class="take_task__description">
+                    <div class="take_task__description_row">
+                        <div class="take_task__full_task">
+                            <h4>Full task:</h4>
+                        </div>
+                        <h4 class="yel_text_color">/ good luck with a task</h4>
+
+                    </div>
+                    <div class="take_task__one_description">
+                        <h2 class="take_task__description_name">Design:</h2>
+                        <p class="take_task__description_text">{{ task.description_design }}</p>
+                    </div>
+                    <div class="take_task__one_description">
+                        <h2 class="take_task__description_name">For:</h2>
+                        <p class="take_task__description_text">{{ task.description_for }}</p>
+                    </div>
+                    <div class="take_task__one_description">
+                        <h2 class="take_task__description_name">To help:</h2>
+                        <p class="take_task__description_text">{{ task.description_to_help }}</p>
+                    </div>
+                </div>
+                {% if have_solution %}
+                    <h3 class="take_task__info_label">Your answer:</h3>
+                    <div class="take_task__info">
+                        <p>{{ solution.text_answer }}</p>
+                    </div>
+                    <h3 class="take_task__info_label">Feedback from mentor:</h3>
+                    <div class="take_task__info">
+                        {% if solution.review == '' %}
+                            <p>Coming soon....</p>
+                        {% else %}
+                            <p>{{ solution.review }}</p>
+                        {% endif %}
+                    </div>
+                {% else %}
+
+                    <form enctype="multipart/form-data" method="POST" class="take_task__form">
+                        {% csrf_token %}
+                        {{ form.text_answer }}
+                        <button type="submit" class="take_task__button"><h4 class="take_task__button_text">Finish task</h4></button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

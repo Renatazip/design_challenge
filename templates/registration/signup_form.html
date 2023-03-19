@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign up{% endblock %}
+
+
+
+
+{% block content %}
+    <div class="signup">
+        <div class="signup__wrapper">
+            {% if form.non_fields_errors %}
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+
+            <form method="post" novalidate class="signup__form">
+                <div class="signup__logo">
+                    <h1>Fluffy</h1>
+                    <p class="signup__logo_sub_label">@ design edition</p>
+                </div>
+                <h3 class="signup__as_smb">Sign up as {{ user_type }}</h3>
+                <div class="signup__switcher">
+                    <div class="signup__login signup__switcher_item">
+                        <a href="{% url 'login' %}"><p>Log in</p></a>
+                    </div>
+                    <div class="signup__signup signup__switcher_item login__switcher_item_active">
+                        <a href="{% url 'signup' %}"><p>Sign up</p></a>
+                    </div>
+
+                </div>
+
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}">
+
+                {{ form.username }}
+                {{ form.password1 }}
+                {{ form.password2 }}
+                <button type="submit" class="signup__button"><p>Sign up</p></button>
+                <div class="signup__privacy_policy_block">
+                    <h6 class="signup__privacy_policy">By signing up you agree to our Terms of Service</h6>
+                    <h6 class="signup__privacy_policy">and Privacy Policy</h6>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+    <script>
+        document.querySelector('[name="username"]').placeholder = 'username';
+        document.querySelector('[name="password1"]').placeholder = 'password';
+        document.querySelector('[name="password2"]').placeholder = 'repeat password';
+
+    </script>
+
+{% endblock %}

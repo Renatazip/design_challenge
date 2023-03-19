@@ -1,0 +1,34 @@
+{% load static %}
+<!doctype html>
+<html lang=en">
+<head>
+    <meta charset="=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'font/sf_pro/stylesheet.css' %}">
+
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="header_student__links">
+            <a class="header_student_link no_left_margin" href="{% url 'problems' %}"><p class="header_student_link_text">Home</p></a>
+            <a class="header_student_link" href="{% url 'problems' %}"><p class="header_student_link_text">Problems</p></a>
+            <a class="header_student_link" href="{% url 'interview_questions' %}"><p class="header_student_link_text">Interview</p></a>
+            <a class="header_student_link" href="{% url 'problems' %}"><p class="header_student_link_text">Mentors</p></a>
+        </div>
+        <div></div>
+    </div>
+
+</header>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
