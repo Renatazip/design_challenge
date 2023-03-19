@@ -19,22 +19,22 @@ cd design_challenge
 Install the requirements:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 Create the database:
 
 ```bash
-python manage.py migrate
+python3 manage.py migrate
 ```
 ```bash
-python manage.py makemigrations
+python3 manage.py makemigrations
 ```
 
 Finally, run the development server:
 
 ```bash
-python manage.py runserver
+python3 manage.py runserver
 ```
 
 The project will be available at **127.0.0.1:8000**.
