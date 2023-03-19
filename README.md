@@ -10,6 +10,12 @@ First, clone the repository to your local machine:
 git clone https://github.com/Renatazip/design_challenge.git
 ```
 
+Move to directory:
+
+```bash
+cd design_challenge 
+```
+
 Install the requirements:
 
 ```bash
