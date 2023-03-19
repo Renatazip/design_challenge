@@ -7,7 +7,7 @@ To give product designers power to grow at BigTech companies and show them the w
 First, clone the repository to your local machine:
 
 ```bash
-git https://github.com/Renatazip/design_challenge.git
+git clone https://github.com/Renatazip/design_challenge.git
 ```
 
 Install the requirements:
